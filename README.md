@@ -26,3 +26,13 @@ b. Once generated, your matrix will have a total of 𝐿2 cells to fill.
 a. Begin at the top-left cell of your matrix and proceed to fill the matrix with the characters from
 the seed string provided to your application by the ‘-s’ command line argument.
 b. Place each character in the cells moving from left to right across the top row.
+3. Continue Filling Rows
+a. Once you reach the end of the first row, move down to the first cell of the next row and
+continue filling in the same left-to-right pattern.
+4. Repeat the String
+a. If you reach the end of seed string before filling all the cells, start again with the first character
+of seed string.
+b. Continue this process until every cell in the matrix is filled.
+5. Consider the Whole Matrix
+a. Make sure you view the matrix as a continuous loop for the string, wrapping around when the
+end of the string is reached and resuming from its start.
