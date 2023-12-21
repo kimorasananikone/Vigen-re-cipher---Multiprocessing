@@ -15,3 +15,14 @@ Stage 1.2 – Matrix Generation
 Your solution should first generate a matrix with dimensions L x L, where L corresponds to the length of the
 string obtained from the input file in Stage 1.1. Next, using the seed string supplied via the '-s' command-line
 argument, populate the matrix according to the following rules:
+
+
+
+1. Initialize Your Matrix
+a. Start by creating an empty matrix with L rows and L columns, where L is the length of the string
+located in the input file retrieved in Stage 1.
+b. Once generated, your matrix will have a total of 𝐿2 cells to fill.
+2. Fill the Matrix
+a. Begin at the top-left cell of your matrix and proceed to fill the matrix with the characters from
+the seed string provided to your application by the ‘-s’ command line argument.
+b. Place each character in the cells moving from left to right across the top row.
