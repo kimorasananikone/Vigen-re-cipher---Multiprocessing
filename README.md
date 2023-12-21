@@ -36,3 +36,67 @@ b. Continue this process until every cell in the matrix is filled.
 5. Consider the Whole Matrix
 a. Make sure you view the matrix as a continuous loop for the string, wrapping around when the
 end of the string is reached and resuming from its start.
+
+
+
+Stage 1.3 – Matrix Processing
+Using the matrix you generated in stage 1.2, your solution should then perform the next 100 steps of a
+simulation that performs the following during each step:
+• For each cell of the matrix, sum up the neighboring cells using the following rules:
+o Neighboring cells containing an ‘a’ are equal to 0. ‘a’ = 0
+o Neighboring cells containing an ‘b’ are equal to 1. ‘b’ = 1
+o Neighboring cells containing an ‘c’ are equal to 2. ‘c’ = 2
+• For each cell of the matrix, update the next iteration of the matrix using the following rules:
+o If the current cell contains an 'a'
+▪ If the sum of the values is a prime number, then the cell remains as an 'a'
+▪ If the sum of the values is an even number, then the cell becomes a 'b'.
+▪ If the sum of the values is an odd number, then the cell becomes a 'c'.
+o If the current cell contains a 'b'
+▪ If the sum of the values is a prime number, then the cell remains as a 'b'
+▪ If the sum of the values is an even number, then the cell becomes a 'c'.
+▪ If the sum of the values is an odd number, then the cell becomes an 'a'.
+o If the current cell contains a 'c'
+▪ If the sum of the values is a prime number, then the cell remains as a 'c'
+▪ If the sum of the values is an even number, then the cell becomes an 'a'.
+▪ If the sum of the values is an odd number, then the cell becomes a 'b'.
+
+
+
+Stage 1.4 – Decryption
+Using the Time Step 100 matrix, your solution will then need to begin the process of decrypting the string using
+the data within this final matrix. The decryption process is done using the following steps:
+1. Column Summation
+a. Starting with the 0th column, sum together all the cells in this column using the following values:
+i. Cells containing an ‘a’ add +0.
+ii. Cells containing a ‘b’ add +1.
+iii. Cells containing a ‘c’ add +2.
+2. Decrypt the Letter
+a. Using the provided python function “decryptLetter”, pass the 0th character of the encrypted
+string and the sum of the 0th column.
+b. This function will then rotate the character to its decrypted character and return that character
+as a length 1 string.
+3. Continue Decryption
+a. Once you have decrypted the 0th column, perform the same two steps on all remaining columns.
+b. The resulting string created by concatenating all of these decrypted letters together is the
+decrypted string.
+4. Write to Output File
+a. Write the decrypted string to the output file given by the command line argument ‘-o’.
+
+
+
+Stage 2.1 – Concurrency Using Multiprocessing
+Once Phase 1 has been completed, the next task is to re-write Stage 1.3 (Matrix Processing) to now make use of
+currency via the multiprocessing module. As such, your solution is required to effectively utilize the Python
+multiprocessing module to enhance its performance. It should be capable of initializing a number of processes
+that corresponds to the number specified by the user through the `-p` option. Typically, when not using the
+multiprocessing module, your program executes serially—that is, it operates using a single thread or process.
+However, for the purpose of this project, you must adapt your program to run in parallel using multiple
+processes. To comply with this requirement, ensure that your solution:
+• Parses the `-p` option to determine the number of processes the user intends to create.
+• Implements the `multiprocessing` module to spawn the exact number of processes requested by the
+user.
+• Orchestrates these processes to work concurrently on the task at hand, which should demonstrate a
+clear understanding and application of parallel processing concepts.
+Proper implementation of the multiprocessing module is crucial. If your solution does not conform to these
+multiprocessing standards, it will be deemed incorrect. Make sure to test and verify that each process is
+performing its intended task and that all processes are running in parallel as expected.
